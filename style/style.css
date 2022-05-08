@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: lightblue;
+    padding: 1%;
+}
+
+main {
+    height: 95vh;
+    display: flex;
+    flex-direction: row;
+}
+
+/* LEFT SECTION */
+h4 {
+    color: rgb(2, 172, 184);
+    padding-top: 3%;
+}
+
+nav {
+    width: 100%;
+    padding-top: 15%;
+}
+
+nav ul {
+    list-style-type: none;
+    line-height: 10vh;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 15%;
+}
+
+li {
+    width: 100%;
+}
+
+li:hover {
+    background-color: rgb(2, 172, 184);
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #3f3f3f;
+    padding-top: 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar > h2 {
+    color: #dcdcdc;
+    padding-top: 10%;
+}
+
+.profile {
+    width: 30vh;
+    height: 30vh;
+    border-radius: 50%;
+    background-size: contain;
+}
+
+/* RIGHT SECTION */
+input[type=button] {
+    color: #3bb7c7;
+    border: #6fe9e9;
+    font-size: 20px;
+    font-weight: 600;
+    padding: .5%;
+    background-color: transparent;
+}
+
+input[type=button]:hover {
+    color: dimgrey;
+}
+
+.mainpage {
+    width: 80%;
+    background-color: #dcdcdc;
+}
+
+.header {
+    background-color: #ffffff;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    padding-right: 3%;
+}
+
+.logo {
+    width: 15vh;
+    height: 15vh;
+}
