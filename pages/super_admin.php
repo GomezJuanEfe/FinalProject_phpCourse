@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['userName']) && !isset($_SESSION['userRoll'])) {
+if (!isset($_SESSION['first_name']) && !isset($_SESSION['userRoll'])) {
   session_destroy();
   header('Location: Login.php');
   exit;

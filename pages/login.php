@@ -49,7 +49,7 @@
         $salt = $row['salt'];
         $hashedPass = $row['user_password'];
         if (password_verify($pass.$salt, $hashedPass)) {
-          $_SESSION['userName'] = $row['user_name'];
+          $_SESSION['userName'] = $row['first_name'];
           $_SESSION['userRoll'] = $row['user_roll'];
           $_SESSION['userID'] = $row['user_id'];
           switch ($row['user_roll']) {
