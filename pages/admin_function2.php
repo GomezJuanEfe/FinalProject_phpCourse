@@ -18,7 +18,7 @@
     </form>
     </form>
     <?php
-        //first admin function register employer
+        //first admin function register company
         //need conection with data base
         if($_SERVER['REQUEST_METHOD']=="POST"){
             $mysqli = new mysqli($hostname,$user,$password,$database);
