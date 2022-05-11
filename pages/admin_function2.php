@@ -11,8 +11,8 @@
         <input type="text" name="Address_line" placeholder="Company Address: "/><br/>
         <input type="email" name="Company_name" placeholder="Write employers email here: "/><br/>
         <input type="time" name="time_available" placeholder="availability of the company: "/><br/>
-        <input type="date" name="date_Available" placeholder="availability dates:  "/><br/>
-        <input type="number" name="Company_phone_number" placeholder="Company`s Phone: ">
+        <input type="date" name="danumbte_Available" placeholder="availability dates:  "/><br/>
+        <input type="number" name="Company_phone_er" placeholder="Company`s Phone: ">
         <input type="email" name="Company_Email" placeholder="Type company email: ">
         <button type="submit">Register Employer</button>
     </form>
@@ -44,4 +44,4 @@
         }
     ?>
 </body>
-</html>zzzzz
+</html>
