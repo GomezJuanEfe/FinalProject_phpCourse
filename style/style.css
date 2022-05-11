@@ -9,7 +9,6 @@ body {
 }
 
 main {
-    height: 95vh;
     display: flex;
     flex-direction: row;
 }
