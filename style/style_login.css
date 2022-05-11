@@ -23,6 +23,19 @@ li {
   background: rgba(0, 0, 0, 0.1);
 }
 
+form {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h2 {
+  color: rgb(2, 172, 184);
+  font-size: 3em;
+}
+
 .login {
   width: 30%;
   height: 600px;
@@ -34,10 +47,6 @@ li {
   flex-direction: column;
 }
 
-h2 {
-  color: #6fe9e9;
-  font-size: 2em;
-}
 .login_sns {
   padding: 20px;
   display: flex;
@@ -101,16 +110,20 @@ h2 {
 }
 
 .submit {
-  margin-top: 50px;
   width: 80%;
+  margin-top: 50px;
+
+  display: flex;
+  justify-content: center;
 }
+
 .submit input {
-  width: 100%;
+  width: 60%;
   height: 50px;
   border: 0;
   outline: none;
   border-radius: 40px;
-  background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
+  background: linear-gradient(to left, #0CDDD8, #B0FBF6 90%);
   color: white;
   font-size: 1.2em;
   letter-spacing: 2px;
