@@ -69,16 +69,16 @@ li:hover {
 }
 
 /* RIGHT SECTION */
-input[type=button] {
+form button {
     color: #3bb7c7;
-    border: #6fe9e9;
+    border: none;
+    cursor: pointer;
     font-size: 20px;
     font-weight: 600;
-    padding: .5%;
     background-color: transparent;
 }
 
-input[type=button]:hover {
+form button:hover {
     color: dimgrey;
 }
 
