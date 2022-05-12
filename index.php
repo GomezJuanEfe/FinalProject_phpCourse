@@ -22,15 +22,16 @@
   <section class="mainpage">
     <article class="header">
       <img src="./img/spaces.png" alt="Logo" class="logo">
-      <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <input class="logout-btn" type="submit" name="logoutbtn" value="Log out">
+      <form class="logout-form" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <input class="logout-btn" type="submit" name="logoutbtn" value="LogOut">
       </form>
     </article>
     <article class="main-content">
       <!-- Dynamic Content -->
       <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          if (isset($_POST['logoutbtn']) && $_POST['logoutbtn'] == "logout") {
+          if (isset($_POST['logoutbtn']) && $_POST['logoutbtn'] == "LogOut") {
+            echo "Hola mundo";
             session_unset();
             session_destroy();
             header('Location: Login.php');
