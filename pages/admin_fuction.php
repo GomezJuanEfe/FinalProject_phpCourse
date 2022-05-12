@@ -1,19 +1,21 @@
-<h2>Users</h2>
-
-<h3>Feature # 1: List all de users in a table with edit and delete buttons</h3>
-
-<h3>Featrue # 2: Form to edit the user selected (different page)</h3>
-
-<form  method="POST">
+<?php
+    include("./DBconfig.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <form  method="POST">
           <input type="email" name="user_email" placeholder="Type the user email: " require>
           <br>
           <input type="password" name="user_password" placeholder="Password" required>
           <br>
-          <select name="user_roll">
-              <option value="manager">Manager</option>
-              <option value="costumer">Client</option>
-              <option value="super_admin">Admin</option>
-          </select>
+          <input type="text" name="user_roll" placeholder="type user roll: " required>
           <br>
           <input type="text" name="user_firstName" placeholder="Type user first name: " required>
           <br>
@@ -26,6 +28,7 @@
           <button type="submit"> Register User</button>
       </form>
       <?php
+            
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 $dbcon = new mysqli($DBserver, $username, $password, $dbName);
                 if ($dbcon->connect_error) {
@@ -51,3 +54,5 @@
                 $dbcon->close();
             }
       ?>
+</body>
+</html>

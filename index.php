@@ -1,5 +1,5 @@
 <?php
-include('./header.php');
+  include('./header.php');
 ?>
 <main>
   <!-- LEFT SECTION-->
@@ -30,11 +30,24 @@ include('./header.php');
       <!-- Dynamic Content -->
       <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          if ($_POST['logoutbtn'] == "logout") {
+          if (isset($_POST['logoutbtn']) && $_POST['logoutbtn'] == "logout") {
             session_unset();
             session_destroy();
             header('Location: Login.php');
             exit;
+          }
+        }
+        if (!isset($_GET['SA']) && !isset($_GET['m']) && !isset($_GET['c']))  {
+          switch ($_SESSION['userRoll']) {
+            case "super_admin";
+              include('./pages/super_admin/dashboard.php');
+              break;
+            case "manager";
+              include('./pages/manager/dashboard.php');
+              break;
+            case "customer";
+              include('./pages/customer/dashboard.php');
+              break;
           }
         }
         if (isset($_GET['SA'])) {
