@@ -18,9 +18,9 @@
                  $selectQuery = "SELECT * FROM users_tb WHERE user_roll='manager'";
                  $ManagerList = $dbcon->query($selectQuery);
                  if($ManagerList->num_rows>0){
-                     while($manager = $ManagerList->fetch_assoc()){
-                         echo "<option>".$manager['user_roll']." "."  ".$manager['first_name']."  ".$manager['last_name']." ID: ".$manager['user_id']."</option>";
-                     }
+                    while($manager = $ManagerList->fetch_assoc()){
+                        echo "<option value='". $manager['user_id']. "'>".$manager['user_roll']." "."  ".$manager['first_name']."  ".$manager['last_name']." ID: ".$manager['user_id']."</option>";
+                    }
                      $dbcon->close();
                  }else{
                      echo "no managers founded";
@@ -39,10 +39,10 @@
         }
         $name=$_POST['company_name'];
         $address=$_POST['company_address'];
-        $insertQuery="INSERT INTO users_tb(name,address) VALUES
-         ('$name,$address)";
+        $managerId=$_POST['select_manager'];
+        $insertQuery="INSERT INTO locations_tb(name,address,manager_id) VALUES('$name','$address','$managerId')";
          if($dbcon->query($insertQuery)===true){
-            echo "User was registered";
+            echo "Location was registered";
         }
         else{
             echo "Not submitted";
