@@ -77,7 +77,7 @@ h2, h3 {
 }
 
 h2 {
-    margin-top: 2%;
+    margin: 20px 0;
 }
 
 form {
@@ -147,4 +147,49 @@ button {
 .logo {
     width: 45vh;
     height: 9vh;
+}
+
+.measure-cont {
+    margin: 30px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.measure {
+    width: 80%;
+}
+.location-list {
+    margin: 80px;
+}
+.location-list ul {
+    margin: 10px 0 30px;
+}
+.location-list li {
+    font-size: 18px;
+    font-weight: lighter;
+    list-style: none;
+    color: #3f3f3f;
+}
+.location-list li:hover {
+    background-color: unset;
+}
+.measure h2, .measure h3 {
+    color:white;
+}
+.measure h3 {
+    padding-left: 10%;
+    font-size: 100px;
+    text-align: left;
+}
+.measure h2 {
+    font-weight: bold;
+}
+div .one {
+    background-color: #0ed7f1;
+}
+div .two {
+    background-color: #418992;
+}
+div .three {
+    background-color: #466d72;
 }

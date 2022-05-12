@@ -1,5 +1,7 @@
 <h2>Users</h2>
 <h3>Feature # 1: List all de users in a table with edit and delete buttons</h3>
+    
+
 <h3>Featrue # 2: Form to edit the user selected (different page)</h3>
 
 <form  method="POST">
@@ -9,7 +11,7 @@
           <br>
           <select name="user_roll">
               <option value="manager">Manager</option>
-              <option value="costumer">Client</option>
+              <option value="customer">Client</option>
               <option value="super_admin">Admin</option>
           </select>
           <br>
