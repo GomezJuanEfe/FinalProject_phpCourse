@@ -27,7 +27,7 @@ include('./header.php');
       </form>
     </article>
     <article class="main-content">
-      <!-- Dinamic content -->
+      <!-- Dynamic Content -->
       <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           if ($_POST['logoutbtn'] == "logout") {
