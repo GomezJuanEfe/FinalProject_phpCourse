@@ -3,9 +3,7 @@
 <h3>Feature # 1: List all de users in a table with edit and delete buttons</h3>
 
 <h3>Featrue # 2: Form to edit the user selected (different page)</h3>
-<?php
-include ("../DBconfig.php");
-?>
+
 <form  method="POST">
           <input type="email" name="user_email" placeholder="Type the user email: " require>
           <br>

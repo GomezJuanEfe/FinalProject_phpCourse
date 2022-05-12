@@ -30,7 +30,7 @@
       <!-- Dinamic content -->
       <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          if ($_POST['logoutbtn'] == "logout") {
+          if (isset($_POST['logoutbtn']) && $_POST['logoutbtn'] == "logout") {
             session_unset();
             session_destroy();
             header('Location: Login.php');

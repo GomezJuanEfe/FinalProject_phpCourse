@@ -20,8 +20,7 @@
              $LocationsList = $dbcon->query($selectQuery);
              if($LocationsList->num_rows>0){
                  while($Loc = $LocationsList->fetch_assoc()){
-                     echo "<option>"."ID: ".$Loc['location_id']."  "."Name: ".$Loc['name']." Addrees: ".$Loc['address']." ManagerID: "
-                     .$Loc['manager_id']."</option>";
+                    echo "<option value='". $Loc['location_id']. "'>".$Loc['name']." ".$Loc['address']." ".$Loc['location_id']."</option>";
                  }
                  $dbcon->close();
              }else{
@@ -41,7 +40,8 @@
             }
             $name_space=$_POST['name_space'];
             $spaces_types=$_POST['spaces_types'];
-            $insertQuery="INSERT INTO spaces_tb(name,type) VALUES($name_space,$spaces_types)";
+            $select_location=$_POST['Select_location'];
+            $insertQuery="INSERT INTO spaces_tb(name,type,location_id) VALUES($name_space,$spaces_types,$select_location)";
             if($dbcon->query($insertQuery)===true){
                 echo "Space was registered";
             }
