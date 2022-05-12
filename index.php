@@ -39,16 +39,22 @@
           }
         }
         if (!isset($_GET['SA']) && !isset($_GET['m']) && !isset($_GET['c']))  {
-          switch ($_SESSION['userRoll']) {
-            case "super_admin";
-              include('./pages/super_admin/dashboard.php');
-              break;
-            case "manager";
-              include('./pages/manager/dashboard.php');
-              break;
-            case "customer";
-              include('./pages/customer/dashboard.php');
-              break;
+          if (isset($_GET['UE']) || isset($_GET['DL'])) {
+            if (isset($_GET['UE'])) {include('./pages/super_admin/userEdit.php');}
+            if (isset($_GET['DL'])) {include('./pages/super_admin/userDelete.php');}
+            
+          } else {
+            switch ($_SESSION['userRoll']) {
+              case "super_admin";
+                include('./pages/super_admin/dashboard.php');
+                break;
+              case "manager";
+                include('./pages/manager/dashboard.php');
+                break;
+              case "customer";
+                include('./pages/customer/dashboard.php');
+                break;
+            }
           }
         }
         if (isset($_GET['SA'])) {
