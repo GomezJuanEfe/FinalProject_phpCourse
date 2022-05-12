@@ -9,6 +9,27 @@
         <option value="type">Office Room</option>
         <option value="type">Workshop Room</option>
     </select>
+    <h3>Select the location: </h3>
+    <select name="Select_location">
+     <?php
+         $dbcon = new mysqli($DBserver,$username,$password,$dbName);
+         if($dbcon->connect_error){
+             die("DB error");
+         }else{
+             $selectQuery = "SELECT * FROM locations_tb";
+             $LocationsList = $dbcon->query($selectQuery);
+             if($LocationsList->num_rows>0){
+                 while($Loc = $LocationsList->fetch_assoc()){
+                     echo "<option>"."ID: ".$Loc['location_id']."  "."Name: ".$Loc['name']." Addrees: ".$Loc['address']." ManagerID: "
+                     .$Loc['manager_id']."</option>";
+                 }
+                 $dbcon->close();
+             }else{
+                 echo "no Locations founded";
+             }
+         }
+     ?>
+    </select>
     <br>
     <button type="submit">Register Space</button>
 </form>

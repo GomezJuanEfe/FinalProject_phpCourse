@@ -39,10 +39,10 @@
         }
         $name=$_POST['company_name'];
         $address=$_POST['company_address'];
-        $insertQuery="INSERT INTO users_tb(name,address) VALUES
+        $insertQuery="INSERT INTO locations_tb(name,address) VALUES
          ('$name,$address)";
          if($dbcon->query($insertQuery)===true){
-            echo "User was registered";
+            echo "Location was registered";
         }
         else{
             echo "Not submitted";
