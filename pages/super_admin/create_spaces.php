@@ -1,8 +1,5 @@
 <h2>Create spaces</h2>
 <h3>Featrue # 1: Create spaces</h3>
-<?php
-include ("../DBconfig.php");
-?>
 <form method="POST">
     <input type="text" name="name_space" placeholder="type the space name: ">
     <br>
