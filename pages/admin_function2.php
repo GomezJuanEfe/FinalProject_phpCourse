@@ -10,8 +10,8 @@
 <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <input type="text" name="Address_line" placeholder="Company Address: "/><br/>
         <input type="email" name="Company_name" placeholder="Write employers email here: "/><br/>
-        <input type="time" name="time_available" placeholder="availability of the company: "/><br/>
-        <input type="date" name="danumbte_Available" placeholder="availability dates:  "/><br/>
+        <input type="time" name="time_available" placeholder="Availability of the company: "/><br/>
+        <input type="date" name="danumbte_Available" placeholder="Availability dates:  "/><br/>
         <input type="number" name="Company_phone_er" placeholder="Company`s Phone: ">
         <input type="email" name="Company_Email" placeholder="Type company email: ">
         <button type="submit">Register Employer</button>
@@ -23,7 +23,7 @@
         if($_SERVER['REQUEST_METHOD']=="POST"){
             $mysqli = new mysqli($hostname,$user,$password,$database);
             if($mysqli->connect_errno){
-                echo "not coneccted: (" .$mysqli->connect_errno .")" .$mysqli->connect_error;
+                echo "Not coneccted: (" .$mysqli->connect_errno .")" .$mysqli->connect_error;
             }
             $Address_line = $_POST['Address_line'];
             $Company_name = $_POST['Company_name'];
@@ -36,9 +36,9 @@
             (Address_line,Company_name,time_available,date_Available,Company_phone_number,Company_Email)
             VALUES('$Address_line','$Company_name','$time_available','$date_Available','$Company_phone_number','$Company_Email')";//need correct data base
              if($mysqli->query($insertQuery)===true){
-                echo "<h2>Your Company was registered</h2>";
+                echo "<h2>Your company was registered</h2>";
             }else{
-                echo "not submited: (" .$mysqli->connect_errno .")" .$mysqli->connect_error;
+                echo "Not submited: (" .$mysqli->connect_errno .")" .$mysqli->connect_error;
             }
             $mysqli->close();
         }

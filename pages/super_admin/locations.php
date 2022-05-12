@@ -45,7 +45,7 @@
                     }
                      $dbcon->close();
                  }else{
-                     echo "no managers founded";
+                     echo "No managers founded";
                  }
              }
          ?>
