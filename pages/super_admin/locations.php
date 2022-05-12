@@ -1,5 +1,25 @@
 <h2>Locations</h2>
 <h3>Feature # 1: list all the locations</h3>
+    <?php
+        $dbcon = new mysqli($DBserver,$username,$password,$dbName);
+        if($dbcon->connect_error){
+            die("DB error");
+        }else{
+            $selectQuery = "SELECT * FROM locations_tb";
+             $LocationsList = $dbcon->query($selectQuery);
+            if($LocationsList->num_rows>0){
+                echo "<table><tr><th>ID</th><th>Name</th><th>Address</th><th>ManagerID</th></tr>";
+                while($Loc = $LocationsList->fetch_assoc()){
+                    echo "<tr><td>".$Loc['location_id']."</td><td>".$Loc['name']."</td>
+                    <td>".$Loc['manager_id']."</td></tr>";
+                }
+                echo "</table>";
+                $dbcon->close();
+            }else{
+                echo "no locations founded";
+            }
+        }
+    ?>
 <h3>Feature # 2: Edit the locations, change manager, delete spaces</h3>
 
 <h3>Feature # 3: Add new locations</h3>
