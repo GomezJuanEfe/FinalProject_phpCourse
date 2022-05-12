@@ -4,10 +4,9 @@
     <input type="text" name="name_space" placeholder="type the space name: ">
     <br>
     <select name="spaces_types">
-        <option value="type">Meeting Room</option>
-        <option value="type">Reunion Room</option>
-        <option value="type">Office Room</option>
-        <option value="type">Workshop Room</option>
+        <option value="desk">Desk</option>
+        <option value="office">Office</option>
+        <option value="meeting_room">Meeting Room</option>
     </select>
     <h3>Select the location: </h3>
     <select name="Select_location">
