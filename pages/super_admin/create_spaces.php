@@ -41,7 +41,7 @@
             $name_space=$_POST['name_space'];
             $spaces_types=$_POST['spaces_types'];
             $select_location=$_POST['Select_location'];
-            $insertQuery="INSERT INTO spaces_tb(name,type,location_id) VALUES($name_space,$spaces_types,$select_location)";
+            $insertQuery="INSERT INTO spaces_tb(name,type,location_id) VALUES('$name_space','$spaces_types','$select_location')";
             if($dbcon->query($insertQuery)===true){
                 echo "Space was registered";
             }
