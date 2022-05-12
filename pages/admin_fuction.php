@@ -15,7 +15,7 @@
           <br>
           <input type="password" name="user_password" placeholder="Password" required>
           <br>
-          <input type="text" name="user_roll" placeholder="type user roll: " required>
+          <input type="text" name="user_roll" placeholder="Type user roll: " required>
           <br>
           <input type="text" name="user_firstName" placeholder="Type user first name: " required>
           <br>
@@ -32,7 +32,7 @@
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 $dbcon = new mysqli($DBserver, $username, $password, $dbName);
                 if ($dbcon->connect_error) {
-                  die("Connection error: " . $dbcon->connect_error);
+                  die("Connection Error: " . $dbcon->connect_error);
                 }
                 $email=$_POST['user_email'];
                 $userPass = $_POST['user_password'];

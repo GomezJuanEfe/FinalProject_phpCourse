@@ -4,9 +4,9 @@
 
 <h3>Feature # 3: Add new locations</h3>
 <form method="POST">
-    <input type="text" name="company_name" placeholder="type the company name: ">
+    <input type="text" name="company_name" placeholder="Type the company name: ">
     <br>
-    <input type="text" name="company_address" placeholder="type the company address: ">
+    <input type="text" name="company_address" placeholder="Type the company address: ">
     <br>
     <h3>Choose the responsible manager for this location</h3>
     <select name="select_manager">
@@ -23,7 +23,7 @@
                     }
                      $dbcon->close();
                  }else{
-                     echo "no managers founded";
+                     echo "No managers founded";
                  }
              }
          ?>

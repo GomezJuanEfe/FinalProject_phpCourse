@@ -21,9 +21,9 @@
   <!-- RIGHT SECTION-->
   <section class="mainpage">
     <article class="header">
-      <img src="./img/logo.png" alt="Logo" class="logo">
+      <img src="./img/spaces.png" alt="Logo" class="logo">
       <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <button class="logout-btn" type="submit" name="logoutbtn" value="logout">Log Out</button>
+        <input class="logout-btn" type="submit" name="logoutbtn" value="Log out">
       </form>
     </article>
     <article class="main-content">

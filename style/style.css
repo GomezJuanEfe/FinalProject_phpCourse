@@ -69,7 +69,45 @@ li:hover {
 }
 
 /* RIGHT SECTION */
-form button {
+h2, h3 {
+    color: rgb(2, 172, 184);
+    text-align: center;
+    margin-bottom: 1.25%;
+}
+
+h2 {
+    margin-top: 2%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, select {
+    width: 45%;
+    height: 35px;
+    color: grey;
+    background-color: white;
+    border-radius: 3px;
+    border: 1.5px solid dimgrey;
+}
+
+button {
+    width: 20%;
+    height: 50px;
+    font-weight: bold;
+    border: 0;
+    outline: 1px solid dimgrey;
+    border-radius: 30px;
+    background: linear-gradient(to left, #2de6e3, #B0FBF6 90%);
+    color: #3bb7c7;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+.logout-btn {
     color: #3bb7c7;
     border: none;
     cursor: pointer;
@@ -78,7 +116,7 @@ form button {
     background-color: transparent;
 }
 
-form button:hover {
+.logout-btn:hover {
     color: dimgrey;
 }
 
@@ -89,7 +127,7 @@ form button:hover {
 
 .header {
     background-color: #ffffff;
-    padding-right: 3%;
+    padding-right: 2%;
 
     display: flex;
     flex-direction: column;
@@ -97,6 +135,6 @@ form button:hover {
 }
 
 .logo {
-    width: 15vh;
-    height: 15vh;
+    width: 45vh;
+    height: 9vh;
 }
