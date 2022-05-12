@@ -3,13 +3,13 @@
 <form method="POST">
     <input type="text" name="name_space" placeholder="type the space name: ">
     <br>
-    <select name="spaces_types">
+    <select name="spaces_types" required>
         <option value="desk">Desk</option>
         <option value="office">Office</option>
         <option value="meeting_room">Meeting Room</option>
     </select>
     <h3>Select the location: </h3>
-    <select name="Select_location">
+    <select name="Select_location" required>
      <?php
          $dbcon = new mysqli($DBserver,$username,$password,$dbName);
          if($dbcon->connect_error){

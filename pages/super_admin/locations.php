@@ -1,5 +1,7 @@
 <h2>Locations</h2>
 <h3>Feature # 1: list all the locations</h3>
+
+    <!-- TABLE -->
     <?php
         $dbcon = new mysqli($DBserver,$username,$password,$dbName);
         if($dbcon->connect_error){
@@ -24,12 +26,12 @@
 
 <h3>Feature # 3: Add new locations</h3>
 <form method="POST">
-    <input type="text" name="company_name" placeholder="type the company name: ">
+    <input type="text" name="company_name" placeholder="Location Name: ">
     <br>
-    <input type="text" name="company_address" placeholder="type the company address: ">
+    <input type="text" name="company_address" placeholder="Location Address: " required>
     <br>
     <h3>Choose the responsible manager for this location</h3>
-    <select name="select_manager">
+    <select name="select_manager" required>
     <?php
              $dbcon = new mysqli($DBserver,$username,$password,$dbName);
              if($dbcon->connect_error){
@@ -39,7 +41,7 @@
                  $ManagerList = $dbcon->query($selectQuery);
                  if($ManagerList->num_rows>0){
                     while($manager = $ManagerList->fetch_assoc()){
-                        echo "<option value='". $manager['user_id']. "'>".$manager['user_roll']." "."  ".$manager['first_name']."  ".$manager['last_name']." ID: ".$manager['user_id']."</option>";
+                        echo "<option value='". $manager['user_id']. "'>" ."  ".$manager['first_name']."  ".$manager['last_name']." ID: ".$manager['user_id']."</option>";
                     }
                      $dbcon->close();
                  }else{

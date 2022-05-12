@@ -2,7 +2,8 @@
 <h3>Featurea # 1: Book a Space</h3>
 
 <?php
-  
+  $time = mktime(7, 0, 0,);
+  echo date('m/d/Y H:i:s', $time);
 ?>
 
 <form method="POST">
@@ -12,7 +13,7 @@
   <br>
   <label for="location">Select a location:</label>
   <br>
-  <select name="location">
+  <select name="location" required>
     <?php
     $dbcon = new mysqli($DBserver, $username, $password, $dbName);
     if ($dbcon->connect_error) {
@@ -34,19 +35,20 @@
   <br>
   <label for="spaceType">Select a space type:</label>
   <br>
-  <select name="spaceType">
-    <option value="desk">Desk</option>
-    <option value="office">Office</option>
-    <option value="meeting_room">Meeting Room</option>
+  <select name="spaceType" required>
+    <!-- Values of the spaces -->
+    <option value="1">Desk</option>
+    <option value="2">Office</option>
+    <option value="3">Meeting Room</option>
   </select>
   <br>
-  <label for="from">Select the day:</label>
+  <label for="day">Select the day:</label>
   <br>
-  <input type="date" name="day" placeholder="type the day: ">
+  <input type="date" name="day" placeholder="type the day: " require>
   <br>
-  <label for="from">Select the time:</label>
+  <label for="time">Select the time:</label>
   <br>
-  <select name="from" id="from">
+  <select name="time" required>
     <option value="7">7:00</option>
     <option value="8">8:00</option>
     <option value="9">9:00</option>
@@ -73,12 +75,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if ($dbcon->connect_error) {
     die("Connection error: " . $dbcon->connect_error);
   }
-  $name = $_POST['company_name'];
-  $address = $_POST['company_address'];
-  $managerId = $_POST['select_manager'];
-  $insertQuery = "INSERT INTO locations_tb(name,address,manager_id) VALUES('$name','$address','$managerId')";
+  $userId = $_SESSION['userID'];
+  $locationId = $_POST['location'];
+  $spaceId = $_POST['spaceType'];
+  $time = $_POST['day']. " ". $_POST['time']. ":00";
+  
+  //VALIDATE THE AVAILABILITY **DATE** OF THE **SPACE** IN THE **LOCATION**
+
+  $insertQuery = "INSERT INTO schedule_tb(user_id, location_id, space_id, time) VALUES('$userId','$locationId','$spaceId', '$time')";
   if ($dbcon->query($insertQuery) === true) {
-    echo "Location was registered";
+    echo "Space booked succesfully";
   } else {
     echo "Not submitted";
   }
