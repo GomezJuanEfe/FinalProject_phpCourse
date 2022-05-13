@@ -29,15 +29,17 @@
     <article class="main-content">
       <!-- Dynamic Content -->
       <?php
+      /* Login out logic */
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           if (isset($_POST['logoutbtn']) && $_POST['logoutbtn'] == "LogOut") {
-            echo "Hola mundo";
             session_unset();
             session_destroy();
             header('Location: Login.php');
             exit;
           }
         }
+
+        /* Side pages paginations */
         if (!isset($_GET['SA']) && !isset($_GET['m']) && !isset($_GET['c']))  {
           if (isset($_GET['UE']) || isset($_GET['DL'])) {
             if (isset($_GET['UE'])) {include('./pages/super_admin/userEdit.php');}
@@ -57,6 +59,8 @@
             }
           }
         }
+
+        /* Users links option pagination */
         if (isset($_GET['SA'])) {
           switch ($_GET['SA']) {
             case "1":

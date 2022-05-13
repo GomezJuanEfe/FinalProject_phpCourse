@@ -193,3 +193,9 @@ div .two {
 div .three {
     background-color: #466d72;
 }
+.usersList table {
+    margin: 0 auto;
+}
+.usersList table a {
+    color: #0ed7f1;
+}
