@@ -20,14 +20,14 @@ session_start();
         <div class="login">
             <h2>LOG IN</h2>
 
-            <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
+            <form method="POST" class="login-form" action="<?php $_SERVER['PHP_SELF'] ?>">
                 <div class="login_id">
                     <h4>User Name</h4>
-                    <input type="email" name="userEmail" placeholder="Email" />
+                    <input type="email" name="userEmail" placeholder="Email" class="email" />
                 </div>
                 <div class="login_pw">
                     <h4>Password</h4>
-                    <input type="password" name="userPassword" placeholder="Password" />
+                    <input type="password" name="userPassword" placeholder="Password" class="password" />
                 </div>
                 <div class="login_etc">
                     <div class="checkbox">

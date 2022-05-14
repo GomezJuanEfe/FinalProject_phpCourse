@@ -51,22 +51,26 @@
     <br>
     <button type="submit">Register Location</button>
 </form>
+<!-- TABLE -->
 <?php
-     if($_SERVER['REQUEST_METHOD']=='POST'){
-        $dbcon = new mysqli($DBserver, $username, $password, $dbName);
-        if ($dbcon->connect_error) {
-          die("Connection error: " . $dbcon->connect_error);
+$dbcon = new mysqli($DBserver, $username, $password, $dbName);
+if ($dbcon->connect_error) {
+    die("DB error");
+} else {
+    $selectQuery = "SELECT `location_id`,`name`,`address`,`first_name`,`last_name` FROM locations_tb INNER JOIN users_tb on users_tb.user_id=locations_tb.manager_id";
+    $LocationsList = $dbcon->query($selectQuery);
+    if ($LocationsList->num_rows > 0) {
+        echo "<table><tr><th>ID</th><th>Name</th><th>Address</th><th>Manager</th></tr>";
+        while ($Loc = $LocationsList->fetch_assoc()) {
+            echo "<tr><td>" . $Loc['location_id'] . "</td><td>" . $Loc['name'] . "</td>
+                    <td>" . $Loc['address'] . "</td><td>" . $Loc['first_name'] . " " . $Loc['last_name'] . "</td>" . "</td><td><a href='index.php?LE=" . $Loc['location_id'] . "'>Edit</a></td><td><a href='index.php?DLL=" . $Loc['location_id'] . "'>Delete</a></tr>";
         }
-        $name=$_POST['company_name'];
-        $address=$_POST['company_address'];
-        $managerId=$_POST['select_manager'];
-        $insertQuery="INSERT INTO locations_tb(name,address,manager_id) VALUES('$name','$address','$managerId')";
-         if($dbcon->query($insertQuery)===true){
-            echo "Location was registered";
-        }
-        else{
-            echo "Not submitted";
-        }
+        echo "</table>";
         $dbcon->close();
-     }
+    } else {
+        echo "no locations founded";
+    }
+}
 ?>
+
+<h2><a class="button" href="index.php?SA=6">New Location</a></h2>
