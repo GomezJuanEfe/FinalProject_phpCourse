@@ -1,11 +1,6 @@
 <h2>Book a space - customer</h2>
 <h3>Featurea # 1: Book a Space</h3>
 
-<?php
-  $time = mktime(7, 0, 0,);
-  echo date('m/d/Y H:i:s', $time);
-?>
-
 <form method="POST">
   <label for="from">Client:</label>
   <br>

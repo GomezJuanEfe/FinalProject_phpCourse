@@ -39,6 +39,11 @@ a {
     padding-left: 15%;
 }
 
+a.button {
+    padding: 0;
+    color: #02acb8;
+}
+
 li {
     width: 100%;
 }

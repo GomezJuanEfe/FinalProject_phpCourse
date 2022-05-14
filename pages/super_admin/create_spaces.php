@@ -1,7 +1,6 @@
-<h2>Create spaces</h2>
-<h3>Featrue # 1: Create spaces</h3>
+<h2>Create a space</h2>
 <form method="POST">
-    <input type="text" name="name_space" placeholder="type the space name: ">
+    <input type="text" name="name_space" placeholder="Type the space name: ">
     <br>
     <select name="spaces_types" required>
         <option value="desk">Desk</option>

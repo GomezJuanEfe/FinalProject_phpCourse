@@ -38,13 +38,12 @@
             exit;
           }
         }
-
         /* Side pages paginations */
         if (!isset($_GET['SA']) && !isset($_GET['m']) && !isset($_GET['c']))  {
-          if (isset($_GET['UE']) || isset($_GET['DL'])) {
+          if (isset($_GET['UE']) || isset($_GET['DL']) || isset($_GET['SE'])) {
             if (isset($_GET['UE'])) {include('./pages/super_admin/userEdit.php');}
-            if (isset($_GET['DL'])) {include('./pages/super_admin/userDelete.php');}
-            
+            if (isset($_GET['DL'])) {include('./pages/super_admin/userEditMsg.php');}
+          if (isset($_GET['SE'])) {include('./pages/super_admin/userEditMsg.php');}
           } else {
             switch ($_SESSION['userRoll']) {
               case "super_admin";
@@ -74,6 +73,9 @@
               break;
             case "4":
               include('./pages/super_admin/create_spaces.php');
+              break;
+            case "5":
+              include('./pages/super_admin/userNew.php');
               break;
           }
         }
