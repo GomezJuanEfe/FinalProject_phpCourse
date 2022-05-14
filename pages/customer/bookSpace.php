@@ -1,5 +1,4 @@
-<h2>Book a space - customer</h2>
-<h3>Featurea # 1: Book a Space</h3>
+<h2>Book a space</h2>
 
 <form method="POST">
   <label for="from">Client:</label>
@@ -74,9 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $locationId = $_POST['location'];
   $spaceId = $_POST['spaceType'];
   $time = $_POST['day']. " ". $_POST['time']. ":00";
-  
   //VALIDATE THE AVAILABILITY **DATE** OF THE **SPACE** IN THE **LOCATION**
-
   $insertQuery = "INSERT INTO schedule_tb(user_id, location_id, space_id, time) VALUES('$userId','$locationId','$spaceId', '$time')";
   if ($dbcon->query($insertQuery) === true) {
     echo "Space booked succesfully";

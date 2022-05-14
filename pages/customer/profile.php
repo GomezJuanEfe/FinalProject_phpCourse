@@ -1,141 +1,63 @@
-<h2>Profile - customer</h2>
-<h3>Featurea # 1: Profile</h3>
-<form  method="POST">
-          <input type="email" name="user_email" placeholder="Type the user email: ">
-          <?php
-           if(isset($_GET['id'])){
-            $dbcon = new mysqli($DBserver,$username,$password,$dbName);
-            if($dbcon->connect_error){
-                echo "DB ERROR";
-            }else{
-                $id = $_GET['id'];
-                $email=$_POST['user_email'];
-              $updateQuery="UPDATE users_tb SET user_email='$email' where user__id='$id'";
-                $result = $dbcon->query($updateQuery);
-                if($result->num_rows>0){
-                    echo "update made with sucess";
-                }
-                $dbcon->close();
-            }
-          }
-          ?>
-          <br>
-          <input type="password" name="user_password" placeholder="Password">
-          <?php
-                if(isset($_GET['id'])){
-                    $dbcon = new mysqli($DBserver,$username,$password,$dbName);
-                    if($dbcon->connect_error){
-                        echo "DB ERROR";
-                    }else{
-                        $id = $_GET['id'];
-                        $userPass = $_POST['user_password'];
-                        $hashedPass = password_hash($userPass.$salt,PASSWORD_DEFAULT);
-                        $updateQuery="UPDATE users_tb SET user_password='$hashedPass' where user__id='$id'";
-                        $result = $dbcon->query($updateQuery);
-                        if($result->num_rows>0){
-                            echo "update made with sucess";
-                        }
-                        $dbcon->close();
-                    }
-                  }
-          ?>
-          <br>
-          <select name="user_roll">
-              <option value="costumer">Client</option>
-          </select>
-          <?php
-             if(isset($_GET['id'])){
-                $dbcon = new mysqli($DBserver,$username,$password,$dbName);
-                if($dbcon->connect_error){
-                    echo "DB ERROR";
-                }else{
-                    $id = $_GET['id'];
-                    $roll=$_POST['user_roll'];
-                    $updateQuery="UPDATE users_tb SET user_roll='$roll' where user__id='$id'";
-                    $result = $dbcon->query($updateQuery);
-                    if($result->num_rows>0){
-                        echo "update made with sucess";
-                    }
-                    $dbcon->close();
-                }
-              }
-          ?>
-          <br>
-          <input type="text" name="user_firstName" placeholder="Type user first name: ">
-          <br>
-          <?php
-             if(isset($_GET['id'])){
-                $dbcon = new mysqli($DBserver,$username,$password,$dbName);
-                if($dbcon->connect_error){
-                    echo "DB ERROR";
-                }else{
-                    $id = $_GET['id'];
-                    $fname=$_POST['user_firstName'];
-                    $updateQuery="UPDATE users_tb SET first_name='$fname' where user__id='$id'";
-                    $result = $dbcon->query($updateQuery);
-                    if($result->num_rows>0){
-                        echo "update made with sucess";
-                    }
-                    $dbcon->close();
-                }
-              }
-          ?>
-          <input type="text" name="user_lastName" placeholder="Type user last name: ">
-          <?php
-                 if(isset($_GET['id'])){
-                    $dbcon = new mysqli($DBserver,$username,$password,$dbName);
-                    if($dbcon->connect_error){
-                        echo "DB ERROR";
-                    }else{
-                        $id = $_GET['id'];
-                        $lname=$_POST['user_lastName'];
-                        $updateQuery="UPDATE users_tb SET last_name='$lname' where user__id='$id'";
-                        $result = $dbcon->query($updateQuery);
-                        if($result->num_rows>0){
-                            echo "update made with sucess";
-                        }
-                        $dbcon->close();
-                    }
-                  }
-          ?>
-          <br>
-          <input type="text" name="user_address" placeholder="Type user address: ">
-          <?php
-            if(isset($_GET['id'])){
-                $dbcon = new mysqli($DBserver,$username,$password,$dbName);
-                if($dbcon->connect_error){
-                    echo "DB ERROR";
-                }else{
-                    $id = $_GET['id'];
-                    $address=$_POST['user_address'];
-                    $updateQuery="UPDATE users_tb SET user_Address='$address' where user__id='$id'";
-                    $result = $dbcon->query($updateQuery);
-                    if($result->num_rows>0){
-                        echo "update made with sucess";
-                    }
-                    $dbcon->close();
-                }
-              }
-          ?>
-          <br>
-          <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="User_phone" placeholder="Type user phone number: ">
-          <?php
-            if(isset($_GET['id'])){
-                $dbcon = new mysqli($DBserver,$username,$password,$dbName);
-                if($dbcon->connect_error){
-                    echo "DB ERROR";
-                }else{
-                    $id = $_GET['id'];
-                    $phone=$_POST['User_phone'];
-                    $updateQuery="UPDATE users_tb SET user_phone='$phone' where user__id='$id'";
-                    $result = $dbcon->query($updateQuery);
-                    if($result->num_rows>0){
-                        echo "update made with sucess";
-                    }
-                    $dbcon->close();
-                }
-              }
-          ?>
-          <br>
-          <button type="submit"> Edit User</button>
-      </form>
+<h2>Edit your profile</h2>
+<?php
+$dbCon = new mysqli($DBserver, $username, $password, $dbName);
+$userId = $_SESSION['userID'];
+if ($dbCon->connect_error) {
+    die("DB error: " . $dbCon->connect_error);
+} else {
+        $selectQuery = "SELECT * FROM users_tb WHERE user_id='$userId'";
+        $info = $dbCon->query($selectQuery);
+        if ($info->num_rows == 1) {
+            $info = $info->fetch_assoc();
+            $userId = $info['user_id'];
+            $userEmail = $info['user_email'];
+            $userFname = $info['first_name'];
+            $userLname = $info['last_name'];
+            $userAdd = $info['user_address'];
+            $userPhone = $info['user_phone'];
+        }
+}
+$dbCon->close();
+?>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $dbcon = new mysqli($DBserver, $username, $password, $dbName);
+  if ($dbcon->connect_error) {
+    die("Connection error: " . $dbcon->connect_error);
+  }
+  $userId = $_POST['ID'];
+  $email = $_POST['user_email'];
+  $fname = $_POST['user_firstName'];
+  $lname = $_POST['user_lastName'];
+  $address = $_POST['user_address'];
+  $phone = $_POST['User_phone'];
+  $insertQuery = "UPDATE users_tb SET user_email='$email', first_name='$fname', last_name='$lname', user_address='$address', user_phone='$phone' WHERE user_id='$userId'";
+  if ($dbcon->query($insertQuery) === true) {
+    echo "<h3>User ID " . $userId . " was modified</h3>";
+    $_SESSION['userName'] = $fname;
+    echo "<meta http-equiv='refresh' content='2'>";
+  } else {
+    echo "<h3>Error</h3>";
+  }
+  $dbcon->close();
+}
+?>
+
+<div class=editUserForm>
+    <form method="POST" >
+        <input type="text" name="ID" value="<?php echo $userId; ?>" readonly>
+        <br>
+        <input type="email" name="user_email" value="<?php echo $userEmail; ?>" require>
+        <br>
+        <input type="text" name="user_firstName" value="<?php echo $userFname; ?>" required>
+        <br>
+        <input type="text" name="user_lastName" value="<?php echo $userLname; ?>" required>
+        <br>
+        <input type="text" name="user_address" value="<?php echo $userAdd; ?>">
+        <br>
+        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="User_phone" value="<?php echo $userPhone; ?>">
+        <br>
+        <button type="submit"> Edit User</button>
+    </form>
+</div>
