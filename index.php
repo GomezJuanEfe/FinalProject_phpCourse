@@ -40,10 +40,12 @@
         }
         /* Side pages paginations */
         if (!isset($_GET['SA']) && !isset($_GET['m']) && !isset($_GET['c']))  {
-          if (isset($_GET['UE']) || isset($_GET['DL']) || isset($_GET['SE'])) {
+          if (isset($_GET['UE']) || isset($_GET['DL']) || isset($_GET['SE']) || isset($_GET['DLL']) || isset($_GET['LE']) || isset($_GET['SEL'])) {
             if (isset($_GET['UE'])) {include('./pages/super_admin/userEdit.php');}
-            if (isset($_GET['DL'])) {include('./pages/super_admin/userEditMsg.php');}
-          if (isset($_GET['SE'])) {include('./pages/super_admin/userEditMsg.php');}
+            if (isset($_GET['DL']) || isset($_GET['SE'])) {include('./pages/super_admin/userEditMsg.php');}
+            if (isset($_GET['LE'])) {include('./pages/super_admin/locationsEdit.php');}
+            if (isset($_GET['DLL']) || isset($_GET['SEL'])) {include('./pages/super_admin/locationsEditMsg.php');}
+            
           } else {
             switch ($_SESSION['userRoll']) {
               case "super_admin";
