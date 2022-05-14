@@ -4,7 +4,6 @@ $dbCon = new mysqli($DBserver, $username, $password, $dbName);
 if (isset($_GET['DLL'])) {
   $locationId = $_GET['DLL'];
   $selectQuery = "SELECT * FROM spaces_tb WHERE location_id='$locationId'";
-  echo "Location Id: " . $_GET['DLL'];
   $spacesInLoc = $dbCon->query($selectQuery);
   if ($spacesInLoc->num_rows > 0) {
     echo "<h3>There's spaces on the location. It's not possible to delete</h3>";

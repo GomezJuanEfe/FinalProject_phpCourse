@@ -79,6 +79,9 @@
             case "5":
               include('./pages/super_admin/userNew.php');
               break;
+            case "6":
+              include('./pages/super_admin/locationsNew.php');
+              break;
           }
         }
         if (isset($_GET['m'])) {

@@ -10,9 +10,9 @@ if ($dbCon->connect_error) {
     $info = $dbCon->query($selectQuery);
     if ($info->num_rows == 1) {
       $info = $info->fetch_assoc();
-      echo $locationName = $info['name'];
-      echo $locationAdd = $info['address'];
-      echo $locationManager = $info['manager_id'];
+      $locationName = $info['name'];
+      $locationAdd = $info['address'];
+      $locationManager = $info['manager_id'];
     }
   }
 }
