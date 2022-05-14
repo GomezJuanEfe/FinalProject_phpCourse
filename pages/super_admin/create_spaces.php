@@ -7,7 +7,7 @@ if ($dbcon->connect_error) {
     $selectQuery = "SELECT s.space_id,s.type,n.name FROM spaces_tb s INNER JOIN locations_tb n on s.location_id=n.location_id ORDER BY n.name, s.type";
     $spacesList = $dbcon->query($selectQuery);
     if ($spacesList->num_rows > 0) {
-        echo "<table><tr><th>ID</th><th>Type</th><th>Location</th></tr>";
+        echo "<table><tr><th>ID</th><th>Type</th><th>Location</th><th></th></tr>";
         while ($space = $spacesList->fetch_assoc()) {
             echo "<tr><td>" . $space['space_id'] . "</td><td>" . $space['type'] . "</td><td>" . $space['name'] . "</td><td><a href='index.php?DLS=" . $space['space_id'] . "'>Delete</a></tr>";
         }

@@ -123,6 +123,10 @@ table {
     text-align: center;
 }
 
+table a {
+    color: #0ed7f1;
+}
+
 table tr {
     height: 7vh;
     background-color: white;
