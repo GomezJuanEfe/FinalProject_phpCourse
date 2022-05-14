@@ -11,7 +11,7 @@
                 echo "<table><tr><th>ID</th><th>Name</th><th>Address</th><th>ManagerID</th></tr>";
                 while($Loc = $LocationsList->fetch_assoc()){
                     echo "<tr><td>".$Loc['location_id']."</td><td>".$Loc['name']."</td>
-                    <td>".$Loc['manager_id']."</td></tr>";
+                    "."<td>".$Loc['address']."</td>".$Loc['manager_id']."</td></tr>";
                 }
                 echo "</table>";
                 $dbcon->close();
