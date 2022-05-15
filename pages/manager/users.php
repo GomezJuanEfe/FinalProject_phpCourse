@@ -36,10 +36,10 @@
                 $insertQuery="INSERT INTO users_tb(user_email,user_password,user_roll,first_name,last_name,salt,user_address,user_phone) VALUES
                 ('$email','$hashedPass','$roll','$fname','$lname','$salt','$address','$phone')";
                 if($dbcon->query($insertQuery)===true){
-                    echo "User was registered";
+                    echo "<p>User was registered</p>";
                 }
                 else{
-                    echo "Not submitted";
+                    echo "<p>Not submitted</p>";
                 }
                 $dbcon->close();
             }

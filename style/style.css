@@ -116,7 +116,7 @@ button {
 
 table {
     width: 100%;
-    padding: 2%;
+    padding: 1%;
     border-collapse: collapse;
     display: flex;
     justify-content: center;
@@ -140,6 +140,14 @@ table th {
     text-transform: uppercase;
     text-align:center;
     letter-spacing: 0.05em;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: orangered;
+    font-weight: bold;
 }
 
 .logout-btn {
