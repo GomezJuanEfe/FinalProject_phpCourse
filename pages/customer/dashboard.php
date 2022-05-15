@@ -24,7 +24,7 @@
       }
       echo "</table>";
     } else {
-      echo "No managers founded";
+      echo "<p>No schedules yet<P>";
     }
     $dbCon->close();
   }

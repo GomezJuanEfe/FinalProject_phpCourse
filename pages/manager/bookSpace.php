@@ -17,7 +17,7 @@
       }
       $dbcon->close();
     } else {
-      echo "The space is not available at this time, try another one or a different space.";
+      echo "<p>The space is not available at this time, try another one or a different space.</p>";
     }
   }
   ?>
@@ -39,7 +39,7 @@
         }
         $dbcon->close();
       } else {
-        echo "The space is not available at this time, try another one or a different space.";
+        echo "<p>The space is not available at this time, try another one or a different space.</p>";
       }
     }
     ?>
@@ -94,9 +94,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   //VALIDATE THE AVAILABILITY **DATE** OF THE **SPACE** IN THE **LOCATION**
   $insertQuery = "INSERT INTO schedule_tb(user_id, location_id, space_id, time) VALUES('$userId','$locationId','$spaceId', '$time')";
   if ($dbcon->query($insertQuery) === true) {
-    echo "Space booked succesfully";
+    echo "<p>Space booked succesfully</p>";
   } else {
-    echo "Not submitted";
+    echo "<p>Not submitted</p>";
   }
   $dbcon->close();
 }

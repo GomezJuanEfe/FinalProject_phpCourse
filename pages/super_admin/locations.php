@@ -16,7 +16,7 @@ if ($dbcon->connect_error) {
         echo "</table>";
         $dbcon->close();
     } else {
-        echo "no locations founded";
+        echo "<p>no locations founded</p>";
     }
 }
 ?>

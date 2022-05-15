@@ -70,7 +70,7 @@
         ";
       }
     } else {
-      echo "No managers founded";
+      echo "<p>No managers founded</p>";
     }
     $dbCon->close();
   }
