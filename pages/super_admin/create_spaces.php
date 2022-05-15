@@ -31,10 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $select_location = $_POST['Select_location'];
     $insertQuery = "INSERT INTO spaces_tb(name,type,location_id) VALUES('$name_space','$spaces_types','$select_location')";
     if ($dbcon->query($insertQuery) === true) {
-        echo "Space was registered";
+        echo "<p>Space was registered</p>";
         echo "<meta http-equiv='refresh' content='1'>";
     } else {
-        echo "Not submitted";
+        echo "<p>Not submitted</p>";
     }
     $dbcon->close();
 }
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 $dbcon->close();
             } else {
-                echo "no Locations founded";
+                echo "<p>No Locations founded</p>";
             }
         }
         ?>
