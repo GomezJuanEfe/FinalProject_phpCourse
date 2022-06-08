@@ -34,7 +34,8 @@
           if (isset($_POST['logoutbtn']) && $_POST['logoutbtn'] == "LogOut") {
             session_unset();
             session_destroy();
-            header('Location: Login.php');
+            // header('Location: Login.php'); use this for work only with the backend
+            header('Location: http://localhost:3000/');
             exit;
           }
         }
